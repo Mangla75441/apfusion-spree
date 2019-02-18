@@ -7,7 +7,7 @@ module SpreeApfusion
 			urls = {
 				"development" => "http://localhost:3000/",
 				"staging" => "http://34.217.121.110/",
-				"production" => "http://apfusion.com/"
+				"production" => "https://apfusion.com/"
 			}
 		 	 	@url = urls[Rails.env]
 				@grant_type = 'client_credentials'
