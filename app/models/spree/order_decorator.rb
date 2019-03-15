@@ -9,13 +9,15 @@ Spree::Order.class_eval do
 		 	p order_ids = Spree::Order.all.collect(&:apfusion_order_id)
 		 	unless order_ids.include?(order['id'])
 		 		p "unless called"
-		 		begin
+		 		# begin
 		 			p "begin called"
 		 			@order = Spree::Order.new
 				 	order["bill_address_attributes"].delete('id')
 				 	order["ship_address_attributes"].delete('id')
 				 	order["bill_address_attributes"].delete('email')
 				 	order["ship_address_attributes"].delete('email')
+				 	order["ship_address_attributes"].delete('customer_number')
+				 	order["bill_address_attributes"].delete('customer_number')
 				 	bill_address = order["bill_address_attributes"]
 				 	ship_address = order["ship_address_attributes"]
 				 	orders_attributes = {'bill_address_attributes'=>bill_address,'ship_address_attributes'=>ship_address,'email'=>order['email'],'apfusion_order_id'=>order['id']}
@@ -71,9 +73,9 @@ Spree::Order.class_eval do
 					@order.next
 					
 
-		 		rescue Exception => e
-		 			p e.message
-		 		end
+		 		# rescue Exception => e
+		 		# 	p e.message
+		 		# end
 		 	end	
 		end 	
 	end
