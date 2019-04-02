@@ -1,6 +1,6 @@
 Spree::Zone.class_eval do
-	after_create :create_at_apfusion
-	after_update :update_at_apfusion
+	# after_create :create_at_apfusion
+	# after_update :update_at_apfusion
 	# after_destroy :destroy_at_apfusion
 	
 
